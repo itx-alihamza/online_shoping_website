@@ -1,0 +1,18 @@
+.carousel-container {
+  width: 80%; /* or 100% depending on your layout */
+  margin: 0 auto; /* Centers the carousel */
+  position: relative; /* Allows for absolute positioning of elements inside if needed */
+}
+
+.slick-slide img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Optional: rounds the corners of the images */
+}
+
+.slick-center img {
+  transform: scale(1.2); /* Scales the centered image */
+  transition: transform 0.5s ease;
+  z-index: 2; /* Brings the centered image to the front */
+}
