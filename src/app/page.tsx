@@ -370,7 +370,7 @@ export default function Home() {
             seanto marico foricie amia.
           </p>
         </div>
-        <div className=" border border-black bg-blue-800 w-full flex justify-center items-center h-[70%]">
+        <div className=" border border-black  w-full flex justify-center items-center ">
           <CarouselComponent customerData={custData} />
         </div>
       </div>

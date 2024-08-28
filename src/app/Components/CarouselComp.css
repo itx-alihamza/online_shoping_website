@@ -1,18 +1,20 @@
-.carousel-container {
-  width: 80%; /* or 100% depending on your layout */
-  margin: 0 auto; /* Centers the carousel */
-  position: relative; /* Allows for absolute positioning of elements inside if needed */
+.slick-center img {
+  transform: scale(1.2); /* Enlarge the central slide */
+  transition: transform 0.5s ease;
+  box-shadow: 0px 10px 20px rgba(0,0,0,0.2); /* Add a shadow to the central slide */
 }
 
 .slick-slide img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 10px; /* Optional: rounds the corners of the images */
+  height: 200px; /* Adjust the height for non-central slides */
+  transition: height 0.5s ease, transform 0.5s ease;
+  filter: grayscale(80%); /* Make non-central slides grayscale */
 }
 
-.slick-center img {
-  transform: scale(1.2); /* Scales the centered image */
-  transition: transform 0.5s ease;
-  z-index: 2; /* Brings the centered image to the front */
+.slick-slide.slick-center img {
+  height: 300px; /* Adjust the height for the central slide */
+  filter: grayscale(0); /* Make the central slide colorful */
+}
+
+.carousel-container {
+  padding: 20px 0; /* Add some padding to center the carousel vertically */
 }

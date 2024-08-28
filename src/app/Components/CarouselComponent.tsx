@@ -17,87 +17,34 @@ const CarouselComponent = ({ customerData }: carouselProp) => {
     sliderRef.slickPrev();
   };
   const settings = {
+    className: "center",
     centerMode: true,
     infinite: true,
-    centerPadding: "60px",
+    centerPadding: "0", // Adjust this padding to control how much of the next/previous slide is shown
     slidesToShow: 3,
     speed: 500,
-    // arrows: true,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          centerMode: false,
-        },
-      },
-    ],
-  };
-  console.log("customer data : ", customerData);
+    arrows: false,
+};
+  // console.log("customer data : ", customerData);
   return (
-    <div className="flex flex-col justify-center items-center w-[79%] carousel-container">
-      <Slider
-        ref={(slider: any) => {
-          sliderRef = slider;
-        }}
-        {...settings}
-      >
-        {/* {customerData.map((item: any) => {
-          console.log("customerData item", item.text);
-          return (
-            <div>
-              <img className="" src={item.cusImg} />
-              <div className="">
-                <p className="text-[11px]">{item.text}</p>
-                <img
-                  className="w-[56px] h-[12px] mt-[3px]"
-                  src="/Homepage/3_sec/stars.png"
-                  style={{ boxShadow: "-13px 13px 0 #d9d9d9" }}
-                />
-                <div className="border border-black  w-1/2" />
-                <h4
-                  className="text-[#484848] text-[50px] mainHeading"
-                  style={{ fontSize: "clamp(1rem, 2vw, 3rem)" }}
-                >
-                  {item.cusName}
-                </h4>
-                <p className="text-[12px]">{item.passion}</p>
-              </div>
+    <div className="flex flex-col w-[79%] carousel-container">
+       <Slider
+    ref={(slider: any) => {
+        sliderRef = slider;
+    }}
+    {...settings}
+>
+    {customerData.map((item: any, index: number) => (
+        <div key={index}>
+            <img className="slick-slide slick-center" src={item.cusImg} alt={`Item ${index + 1}`} />
+            <div className="text-center mt-2">
+                <p>{item.text}</p>
+                <p>{item.cusName}</p>
+                <p>{item.passion}</p>
             </div>
-          );
-        })} */}
-        <div>
-          <img className="slick-slide slick-center" src="/" alt="Item 1" />
         </div>
-        <div>
-          <img
-            className="slick-slide slick-center"
-            src="image2.jpg"
-            alt="Item 2"
-          />
-        </div>
-        <div>
-          <img
-            className="slick-slide slick-center"
-            src="image3.jpg"
-            alt="Item 3"
-          />
-        </div>
-        <div>
-          <img
-            className="slick-slide slick-center"
-            src="image4.jpg"
-            alt="Item 4"
-          />
-        </div>
-        <div>
-          <img
-            className="slick-slide slick-center"
-            src="image5.jpg"
-            alt="Item 5"
-          />
-        </div>
-      </Slider>
+    ))}
+  </Slider>
       {/* Buttons */}
       <div className="  flex flex-row justify-between w-[100px] mt-[39px] ">
         <button
