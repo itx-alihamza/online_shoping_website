@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 // import Swiper bundle with all modules installed
 import Swiper from "swiper/bundle";
 // import styles bundle
@@ -6,40 +7,42 @@ type RewindCorousalProps = {
   custArray: any;
 };
 const CustomerReviewCorousal = ({ custArray }: RewindCorousalProps) => {
-  new Swiper(".swiper", {
-    // Optional parameters
-    // direction: "vertical",
-    loop: true,
-    spaceBetween: 30,
+  useEffect(() => {
+    // Initialize Swiper only after the component has mounted
+    const swiper = new Swiper(".swiper", {
+      loop: true,
+      spaceBetween: 30,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        786: {
+          slidesPerView: 2,
+        },
+        1084: {
+          slidesPerView: 3,
+        },
+      },
+      scrollbar: {
+        el: ".swiper-scrollbar",
+      },
+    });
 
-    // If we need pagination
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      dynamicBullets: true,
-    },
+    // Cleanup function to destroy swiper instance on component unmount
+    return () => {
+      if (swiper) swiper.destroy(true, true);
+    };
+  }, []); // Empty dependency array means this effect runs once on mount
 
-    // Navigation arrows
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    breakpoints: {
-      0: {
-        slidesPerView: 1,
-      },
-      786: {
-        slidesPerView: 2,
-      },
-      1084: {
-        slidesPerView: 3,
-      },
-    },
-    // And if we need scrollbar
-    scrollbar: {
-      el: ".swiper-scrollbar",
-    },
-  });
   return (
     //  Slider main container
     <div className="swiper">
