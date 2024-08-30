@@ -23,28 +23,43 @@ const CarouselComponent = ({ customerData }: carouselProp) => {
     centerPadding: "0", // Adjust this padding to control how much of the next/previous slide is shown
     slidesToShow: 3,
     speed: 500,
-    arrows: false,
-};
+    arrows: true,
+  };
   // console.log("customer data : ", customerData);
   return (
-    <div className="flex flex-col w-[79%] carousel-container">
-       <Slider
-    ref={(slider: any) => {
-        sliderRef = slider;
-    }}
-    {...settings}
->
-    {customerData.map((item: any, index: number) => (
-        <div key={index}>
-            <img className="slick-slide slick-center" src={item.cusImg} alt={`Item ${index + 1}`} />
-            <div className="text-center mt-2">
-                <p>{item.text}</p>
-                <p>{item.cusName}</p>
-                <p>{item.passion}</p>
+    <div className="flex flex-col justify-center items-center max-w-[79%] max-h-full carousel-container">
+      <Slider
+        ref={(slider: any) => {
+          sliderRef = slider;
+        }}
+        {...settings}
+      >
+        {customerData.map((item: any) => {
+          console.log("item", item.text);
+          return (
+            // <div className="border border-black max-h-[61vh] w-[142%] flex-shrink-0 flex flex-row p-[40px] ransition-transform mr-3 duration-500 rounded-[5px]">
+            <div className="flex flex-row border border-black w-full justify-center">
+              <img className="w-[32%] h-[96%] mt-[3px]" src={item.cusImg} />
+              <div className="pl-[20px] flex flex-col justify-between">
+                <p className="text-[11px]">{item.text}</p>
+                <img
+                  className="w-[56px] h-[12px] mt-[3px]"
+                  src="/Homepage/3_sec/stars.png"
+                  style={{ boxShadow: "-13px 13px 0 #d9d9d9" }}
+                />
+                <div className="border border-black  w-1/2" />
+                <h4
+                  className="text-[#484848] text-[50px] mainHeading"
+                  style={{ fontSize: "clamp(1rem, 2vw, 3rem)" }}
+                >
+                  {item.cusName}
+                </h4>
+                <p className="text-[12px]">{item.passion}</p>
+              </div>
             </div>
-        </div>
-    ))}
-  </Slider>
+          );
+        })}
+      </Slider>
       {/* Buttons */}
       <div className="  flex flex-row justify-between w-[100px] mt-[39px] ">
         <button

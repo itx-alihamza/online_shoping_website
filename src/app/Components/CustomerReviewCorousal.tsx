@@ -1,72 +1,81 @@
-import { Cherish } from "next/font/google";
-import React, { useState } from "react";
-import { ChevronLeft, ChevronRight } from "react-feather";
-
+// import Swiper bundle with all modules installed
+import Swiper from "swiper/bundle";
+// import styles bundle
+import "swiper/css/bundle";
 type RewindCorousalProps = {
   custArray: any;
 };
 const CustomerReviewCorousal = ({ custArray }: RewindCorousalProps) => {
-  const [curIndex, setCurrentImg] = useState(0);
-  //   next button logic
-  const next = () => {
-    setCurrentImg(() => (curIndex == custArray.length - 1 ? 0 : curIndex + 1));
-  };
-  //   prev button logic
-  const prev = () => {
-    setCurrentImg(() => (curIndex == 0 ? custArray.length - 1 : curIndex - 1));
-  };
+  new Swiper(".swiper", {
+    // Optional parameters
+    // direction: "vertical",
+    loop: true,
+    spaceBetween: 30,
+
+    // If we need pagination
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+
+    // Navigation arrows
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      786: {
+        slidesPerView: 2,
+      },
+      1084: {
+        slidesPerView: 3,
+      },
+    },
+    // And if we need scrollbar
+    scrollbar: {
+      el: ".swiper-scrollbar",
+    },
+  });
   return (
-    <div className="border border-black w-[79%] h-[94%] flex flex-col justify-center items-center  overflow-hidden">
-      {/* Corousal images */}
-      <div
-        className=" h-[55%] w-full bg-white flex flex-row justify-between rounded-[5px]"
-        style={{ boxShadow: "0px 0px 20px -7px" }}
-      >
-        {/* {custArray.map((item: any) => {
-          console.log("item", item.text);
-          return (
-            <div
-              className="border border-black h-full w-[44%] flex-shrink-0 flex flex-row p-[40px] ransition-transform mr-3 duration-500 rounded-[5px]"
-              style={{ transform: `translateX(-${curIndex * 100}%)` }}
-            >
-              <img className="w-[32%] h-[96%] mt-[3px]" src={item.cusImg} />
-              <div className="pl-[43px] flex flex-col justify-between">
-                <p className="text-[11px]">{item.text}</p>
-                <img
-                  className="w-[56px] h-[12px] mt-[3px]"
-                  src="/Homepage/3_sec/stars.png"
-                  style={{ boxShadow: "-13px 13px 0 #d9d9d9" }}
-                />
-                <div className="border border-black  w-1/2" />
-                <h4
-                  className="text-[#484848] text-[50px] mainHeading"
-                  style={{ fontSize: "clamp(1rem, 2vw, 3rem)" }}
-                >
-                  {item.cusName}
-                </h4>
-                <p className="text-[12px]">{item.passion}</p>
-              </div>
-            </div>
-          );
-        })} */}
+    //  Slider main container
+    <div className="swiper">
+      {/* Additional required wrapper  */}
+      <div className="swiper-wrapper">
+        Slides
+        <div className="swiper-slide">
+          Slide first
+          <img src="/Homepage/6_sec/1.png" />
+        </div>
+        <div className="swiper-slide">
+          Slide 2
+          <img src="/Homepage/6_sec/2.png" />
+        </div>
+        <div className="swiper-slide">
+          Slide 3
+          <img src="/Homepage/6_sec/1.png" />
+        </div>
+        <div className="swiper-slide">
+          Slide 4
+          <img src="/Homepage/6_sec/2.png" />
+        </div>
+        <div className="swiper-slide">
+          Slide 4
+          <img src="/Homepage/6_sec/1.png" />
+        </div>
       </div>
-      {/* indicators */}
-      <div className="  flex flex-row justify-between w-[100px] mt-[39px] ">
-        <button
-          onClick={prev}
-          className="flex flex- w-8 h-8 p-[6px] shadow-black bg-white  justify-center items-center rounded-full"
-          style={{ boxShadow: "0px 0px 20px -7px" }}
-        >
-          <ChevronLeft />
-        </button>
-        <button
-          onClick={next}
-          className="flex flex- w-8 h-8 p-[6px] shadow-black bg-white  justify-center items-center rounded-full"
-          style={{ boxShadow: "0px 0px 20px -7px" }}
-        >
-          <ChevronRight />
-        </button>
-      </div>
+      {/* If we need pagination  */}
+      <div className="swiper-pagination"></div>
+
+      {/* If we need navigation buttons  */}
+      <div className="swiper-button-prev"></div>
+      <div className="swiper-button-next"></div>
+
+      {/* If we need scrollbar  */}
+      <div className="swiper-scrollbar"></div>
     </div>
   );
 };

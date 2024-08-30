@@ -2,9 +2,12 @@ import React from "react";
 import SignBtn from "./SignBtn";
 import Link from "next/link";
 
-const CommonHeader = () => {
+const CommonHeaderUnsigned = () => {
   return (
-    <div className="flex mt-[26px] mb-[33px] flex-row  h-2/5   justify-center ">
+    <div
+      id="top"
+      className="flex mt-[26px] mb-[33px] flex-row  h-2/5   justify-center "
+    >
       <div className="flex w-[29%]">
         <h1 className="mainHeading">FASCO</h1>
       </div>
@@ -28,4 +31,4 @@ const CommonHeader = () => {
   );
 };
 
-export default CommonHeader;
+export default CommonHeaderUnsigned;

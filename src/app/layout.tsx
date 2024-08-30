@@ -1,9 +1,11 @@
+// "use client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import CommonHeader from "./Components/CommonHeader";
 import CommonFooter from "./Components/CommonFooter";
-
+import CommonHeaderUnsigned from "./Components/CommonHeaderUnsigned";
+import { useRouter } from "next/navigation";
+// const router = useRouter();
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <CommonHeader />
+        <CommonHeaderUnsigned />
         {children}
         <CommonFooter />
       </body>
