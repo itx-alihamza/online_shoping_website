@@ -2,7 +2,7 @@ import React from "react";
 
 const SomeCollection = () => {
   return (
-    <div className=" flex flex-col justify-end w-screen h-screen">
+    <div id="Packages" className=" flex flex-col justify-end w-screen h-screen">
       <div className="relative  flex flex-row justify-end w-srceen h-[67vh]">
         <img
           className="absolute top-0 bottom-0 left-0 right-0 h-full w-[55%] -r-black"

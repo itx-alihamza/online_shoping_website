@@ -1,3 +1,7 @@
-export default function Products() {
-  return <h1>SignUp</h1>;
-}
+import React from "react";
+
+const page = () => {
+  return <div>page</div>;
+};
+
+export default page;

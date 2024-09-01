@@ -1,0 +1,24 @@
+.swiper-slide {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 33px;
+  margin-right: 10px;
+}
+.swiper {
+  position: unset;
+}
+.swiper-wrapper {
+  transition: transform;
+  transform: scale(200px);
+}
+/* CustomerReviewCorousal.css */
+.swiper-slide {
+  transition: transform 0.5s ease;
+}
+
+.scale-up {
+  transform: scale(1.1); /* Adjust scale value as needed */
+  z-index: 10; /* Ensure the scaled-up slide is on top */
+}

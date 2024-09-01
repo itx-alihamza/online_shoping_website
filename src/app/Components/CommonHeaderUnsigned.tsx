@@ -6,16 +6,24 @@ const CommonHeaderUnsigned = () => {
   return (
     <div
       id="top"
-      className="flex mt-[26px] mb-[33px] flex-row  h-2/5   justify-center "
+      className=" flex m-[16px] flex-row  h-[38%]   justify-center "
     >
       <div className="flex w-[29%]">
         <h1 className="mainHeading">FASCO</h1>
       </div>
-      <div className="text-[9px]  w-[41%]  flex flex-row justify-around items-center">
-        <p>Home</p>
-        <p>Deals</p>
-        <p>New Arrivals</p>
-        <p>Packages</p>
+      <div className="text-[11px] text-[#484848]  w-[41%]  flex flex-row justify-around items-center">
+        <Link href={"/"}>
+          <p className="cursor-pointer">Home</p>
+        </Link>
+        <a href="#DOM" className="cursor-pointer">
+          Deals
+        </a>
+        <a href="#NA" className="cursor-pointer">
+          New Arrivals
+        </a>
+        <a href="#Packages" className="cursor-pointer">
+          Packages
+        </a>
         <Link href={"/signIn"}>
           <p className="          border w-[77px] h-[31px] text-[9px] mb-2  rounded-[4px] flex justify-center items-center">
             Sign In

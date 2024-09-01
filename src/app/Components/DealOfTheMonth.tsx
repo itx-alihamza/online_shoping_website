@@ -23,7 +23,7 @@ const DealOfTheMonth = () => {
     console.log("Buy Now Button Click");
   }
   return (
-    <div className="flex items-center h-[74vh] bg-[#dcdcdc40]">
+    <div id="DOM" className="flex items-center h-[74vh] bg-[#dcdcdc40]">
       <div className="flex flex-row justify-end    w-full h-[70%]">
         {/* sec-2-inner-div-1 */}
         <div className=" flex flex-col     w-[35%] h-full">

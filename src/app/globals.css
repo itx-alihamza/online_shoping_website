@@ -32,6 +32,14 @@ body {
   font-size: 24px;
   color: #333;
 }
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 /* Mian heading */
 .mainHeading {
   color: #484848;

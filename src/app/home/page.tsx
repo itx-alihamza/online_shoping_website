@@ -1,17 +1,18 @@
 "use client";
-import "./globals.css";
-import SignBtn from "./Components/SignBtn";
 import { useState } from "react";
-import Product from "./Components/Product";
-import products from "./utils/products";
-import NewArrivalBtns from "./Components/NewArrivalBtns";
-import { custData } from "./utils/customerData";
-import CustomerReviewCorousal from "./Components/CustomerReviewCorousal";
-import DealOfTheMonth from "./Components/DealOfTheMonth";
-import FollowUs from "./Components/FollowUs";
-import SomeCollection from "./Components/SomeCollection";
+import CustomerReviewCorousal from "../Components/CustomerReviewCorousal";
+import DealOfTheMonth from "../Components/DealOfTheMonth";
+import FollowUs from "../Components/FollowUs";
+import NewArrivalBtns from "../Components/NewArrivalBtns";
+import Product from "../Components/Product";
+import SignBtn from "../Components/SignBtn";
+import SomeCollection from "../Components/SomeCollection";
+import { custData } from "../utils/customerData";
+import products from "../utils/products";
+
 import Link from "next/link";
-export default function UnsignedHome() {
+import CommonHeaderSigned from "../Components/CommonHeaderSigned";
+export default function Home() {
   console.log("customer data", custData);
 
   // Arrival Buttons array
@@ -54,7 +55,7 @@ export default function UnsignedHome() {
     // Main div
     <div onClick={(e) => console.log("main dev", e)} className="relative">
       {/* Section-1 */}
-      <div className="flex flex-col  h-[88vh] w-full sm:w-[80%] md:w-[70%]  m-auto justify-center items-center">
+      <div className="flex flex-col  h-[87vh] w-full sm:w-[80%] md:w-[70%]  m-auto justify-center items-center">
         <div className="flex flex-row  justify-between w-full h-[79%]">
           <div className=" flex justify-center w-[30%] bg-[#E0E0E0] h-full rounded-[9px]">
             <img
@@ -104,10 +105,8 @@ export default function UnsignedHome() {
           <div className="font-sans m-0 font-bold text-3xl ">DENIM</div>
         </div>
       </div>
-
       {/* Section-2 */}
       <DealOfTheMonth />
-
       {/* Section-3 */}
       <div id="NA" className="h-auto w-screen">
         <div className="  mx-auto flex flex-col justify-center items-center  h-auto w-[90vw] sm:w-[90vw] md:w-[80vw] lg:w-[70vw]">
@@ -155,7 +154,6 @@ export default function UnsignedHome() {
           </div>
         </div>
       </div>
-
       {/* Section-4 Packages*/}
       <SomeCollection />
 
