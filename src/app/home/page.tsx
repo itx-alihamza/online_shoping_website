@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import CustomerReviewCorousal from "../Components/CustomerReviewCorousal";
 import DealOfTheMonth from "../Components/DealOfTheMonth";
 import FollowUs from "../Components/FollowUs";
 import NewArrivalBtns from "../Components/NewArrivalBtns";
@@ -9,9 +8,8 @@ import SignBtn from "../Components/SignBtn";
 import SomeCollection from "../Components/SomeCollection";
 import { custData } from "../utils/customerData";
 import products from "../utils/products";
-
 import Link from "next/link";
-import CommonHeaderSigned from "../Components/CommonHeaderSigned";
+import CustomerReviewCorousal from "../Components/customerReviewCorousal/CustomerReviewCorousal";
 export default function Home() {
   console.log("customer data", custData);
 

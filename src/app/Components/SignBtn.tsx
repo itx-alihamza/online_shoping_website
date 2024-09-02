@@ -1,10 +1,10 @@
 import React from "react";
-type signProps = {
+type SignProps = {
   onClick: () => void;
   text: string;
   btn: string;
 };
-const SignBtn = ({ text, btn, onClick }: signProps) => {
+const SignBtn = ({ text, btn, onClick }: SignProps) => {
   // Determine the class based on the `btn` value
   const btnClass =
     btn == "signIn"

@@ -6,11 +6,11 @@ import Product from "./Components/Product";
 import products from "./utils/products";
 import NewArrivalBtns from "./Components/NewArrivalBtns";
 import { custData } from "./utils/customerData";
-import CustomerReviewCorousal from "./Components/CustomerReviewCorousal";
 import DealOfTheMonth from "./Components/DealOfTheMonth";
 import FollowUs from "./Components/FollowUs";
 import SomeCollection from "./Components/SomeCollection";
 import Link from "next/link";
+import CustomerReviewCorousal from "./Components/customerReviewCorousal/CustomerReviewCorousal";
 export default function UnsignedHome() {
   console.log("customer data", custData);
 

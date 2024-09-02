@@ -1,8 +1,6 @@
 import React from "react";
-import SignBtn from "./SignBtn";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import HeaderSignedButton from "./HeaderSignedButton.tsx";
+import HeaderSignedButton from "./HeaderSignedButton";
 
 const CommonHeaderSigned = () => {
   // console.log("currentPath : ", currentPathName);

@@ -41,8 +41,35 @@ const SomeCollection = () => {
         </div>
         {/* <div className=" skew-x-[-15deg] "></div> */}
       </div>
-      <div className=" w-srceen h-[22vh]">
-        <img className="" src="/Homepage/4_sec/final-features.png" />
+      <div className=" flex flex-row justify-center w-srceen h-[22vh]">
+        <div className=" flex flex-row justify-center items-center gap-2 h-full w-[17%]">
+          <img className="w-9 h-9" src="/Homepage/4_sec/review.png" />
+          <div className="flex flex-col justify-between text-[#484848]">
+            <p className="text-sm font-semibold">High Quality</p>
+            <p className="text-xs">crafted form top material</p>
+          </div>
+        </div>
+        <div className=" flex flex-row justify-center items-center gap-2 h-full w-[17%]">
+          <img className="w-8 h-9" src="/Homepage/4_sec/certifi.png" />
+          <div className="flex flex-col justify-between text-[#484848]">
+            <p className="text-sm font-semibold">Warrany Protection</p>
+            <p className="text-xs">Over 2 years</p>
+          </div>
+        </div>
+        <div className=" flex flex-row justify-center items-center gap-2 h-full w-[17%]">
+          <img className="w-9 h-9" src="/Homepage/4_sec/dilive.png" />
+          <div className="flex flex-col justify-between text-[#484848]">
+            <p className="text-sm font-semibold">Free Shipping</p>
+            <p className="text-xs">Order over 150$</p>
+          </div>
+        </div>
+        <div className=" flex flex-row justify-cneter items-center gap-2 h-full w-[17%]">
+          <img className="w-9 h-9" src="/Homepage/4_sec/custo.png" />
+          <div className="flex flex-col justify-between text-[#484848]">
+            <p className="text-sm font-semibold">24 / 7 Support</p>
+            <p className="text-xs">Dedicated support</p>
+          </div>
+        </div>
       </div>
     </div>
   );

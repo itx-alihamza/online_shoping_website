@@ -4,6 +4,8 @@
 @tailwind utilities;
 
 body {
+  font-family: "Volkhov", serif;
+
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -45,7 +47,6 @@ body {
   color: #484848;
   font-family: math;
   font-size: 36px;
-  font-weight: bold;
 }
 
 .subHeading {

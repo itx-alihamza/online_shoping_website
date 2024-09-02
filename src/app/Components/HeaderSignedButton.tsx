@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-type headerSignBtnProsps = {
+type HeaderSignBtnProsps = {
   btnType: any;
   text: any;
 };
-const HeaderSignedButton = ({ btnType, text }: headerSignBtnProsps) => {
+const HeaderSignedButton = ({ btnType, text }: HeaderSignBtnProsps) => {
   const currentPathName = usePathname();
   {
     btnType =

@@ -44,32 +44,32 @@ const DealOfTheMonth = () => {
               text="Buy Now"
             />
           </div>
-          <div className=" flex flex-col justify-between w-[78%] h-1/3">
+          <div className=" flex flex-col justify-between max-w-[68%] h-1/3">
             <p className="text-[18px]">Hurry, Before Its Too Late!</p>
-            <div className="flex flex-row h-[90%] w-[78%] justify-between">
-              <div className="flex w-[22%] flex-col">
+            <div className=" flex flex-row  justify-between items-center h-[90%] w-[78%]">
+              <div className="flex flex-col justify-center items-center">
                 <div className="flex justify-center digit items-center w-full h-[64%] text-2xl rounded-lg shadow-xl bg-white">
                   02
                 </div>
                 <p className="self-center text-[14px]">Days</p>
               </div>
-              <div className="flex w-[20%] flex-col">
-                <div className="flex justify-center items-center w-full h-[64%] text-2xl rounded-lg shadow-xl bg-white">
-                  <p>06</p>
+              <div className="flex flex-col justify-center items-center">
+                <div className="flex justify-center digit items-center w-full h-[64%] text-2xl rounded-lg shadow-xl bg-white">
+                  06
                 </div>
-                <p className="self-center text-[14px]">Hr</p>
+                <p className="self-center text-[14px]">Days</p>
               </div>
-              <div className="flex w-[20%] flex-col">
-                <div className="flex justify-center items-center w-full h-[64%] text-2xl rounded-lg shadow-xl bg-white">
-                  <p>05</p>
+              <div className="flex flex-col justify-center items-center">
+                <div className="flex justify-center digit items-center w-full h-[64%] text-2xl rounded-lg shadow-xl bg-white">
+                  05
                 </div>
-                <p className="self-center text-[14px]">Mins</p>
+                <p className="self-center text-[14px]">Days</p>
               </div>
-              <div className="flex w-[20%] flex-col">
-                <div className="flex justify-center items-center w-full h-[64%] text-2xl rounded-lg shadow-xl bg-white">
-                  <p>30</p>
+              <div className="flex flex-col justify-center items-center">
+                <div className="flex justify-center digit items-center w-full h-[64%] text-2xl rounded-lg shadow-xl bg-white">
+                  30
                 </div>
-                <p className="self-center text-[14px]">Sec</p>
+                <p className="self-center text-[14px]">Days</p>
               </div>
             </div>
           </div>

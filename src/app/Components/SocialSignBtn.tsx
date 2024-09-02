@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
 
-type signProps = {
+type SignProps = {
   onClick: () => void;
   image: string;
   title: string;
 };
-const SocialSignButton: React.FC<signProps> = ({ image, title, onClick }) => {
+const SocialSignButton: React.FC<SignProps> = ({ image, title, onClick }) => {
   return (
     <div
       onClick={() => onClick()}
