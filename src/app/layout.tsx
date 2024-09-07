@@ -6,6 +6,8 @@ import CommonHeaderUnsigned from "./Components/CommonHeaderUnsigned";
 import { usePathname } from "next/navigation";
 import { metadata } from "./utils/metaData";
 import CommonHeaderSigned from "./Components/CommonHeaderSigned";
+import { ModalProvider } from "./context/ModalContext";
+import SideNavModal from "./Components/sideNavModal/SideNavModal";
 // const router = useRouter();
 const inter = Inter({ subsets: ["latin"] });
 const metaData = metadata();
@@ -37,6 +39,8 @@ export default function RootLayout({
         className={`${inter.className} absolute`}
         style={{ overflowX: "hidden" }}
       >
+        <ModalProvider>
+        <SideNavModal />
         {isHeaderUnsigned && <CommonHeaderUnsigned />}{" "}
         {/* When user is unSigned */}
         {isHeaderSigned && isHeaderUnignedInclude !== "/" ? (
@@ -47,6 +51,7 @@ export default function RootLayout({
         {isHeaderSigned && isFooterMinicart !== "/products/miniCart" ? (
           <CommonFooter />
         ) : null}
+        </ModalProvider>
       </body>
     </html>
   );

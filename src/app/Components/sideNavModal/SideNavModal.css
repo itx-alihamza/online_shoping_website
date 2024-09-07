@@ -1,0 +1,67 @@
+/* SideNavModal.css */
+
+.modal-overlay {
+    position: fixed; /* Make it fixed to cover the whole viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 1000; /* Higher z-index to be above everything */
+  }
+  
+  .modal-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .side-nav {
+    position: fixed; /* Fixed positioning to stay above all content */
+    top: 0;
+    left: -250px; /* Hidden off the screen */
+    width: 250px;
+    height: 100%;
+    background: #333;
+    color: white;
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 1100; /* Higher z-index than the overlay */
+  }
+  
+  .side-nav.open {
+    left: 0; /* Slide in */
+  }
+  
+  .open-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    position: fixed; /* Fixed positioning for button if needed */
+    top: 20px;
+    left: 20px;
+    z-index: 1200; /* Ensure button is above everything */
+  }
+  
+  .close-btn {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 10px 0;
+  }
+  
