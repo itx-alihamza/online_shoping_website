@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 10px;
+  font-size: small;
+}
+.pagination .active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f3f3;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+}
+/* className="flex justify-center items-center w-10 h-10 p-1 bg-[#F3F3F3] rounded-full" */

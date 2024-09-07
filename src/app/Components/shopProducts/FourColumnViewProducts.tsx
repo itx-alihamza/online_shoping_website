@@ -1,11 +1,7 @@
-import React, { useState } from "react";
-import ReactPaginate from "react-paginate";
-import "./paginationStyle.css";
 import { shopProductsData } from "@/app/utils/shopProducts";
 import { shopProductTypes } from "@/app/utils/types";
-import Link from "next/link";
-// import { Link } from "lucide-react";
-
+import React, { useState } from "react";
+import ReactPaginate from "react-paginate";
 type ShopProductsProps = {
   productSize: string | null;
   productColor: string | null;
@@ -13,7 +9,7 @@ type ShopProductsProps = {
   productBrand: string | null;
   productTag: string | null;
 };
-const ListViewProducts = ({
+const FourColumnsProductView = ({
   productSize,
   productColor,
   productPrice,
@@ -91,7 +87,7 @@ const ListViewProducts = ({
   // console.log("Shop filter data outside: ", ShopProductsFilterData);
   //  const shopProductsFilterData = shopProductsData
 
-  const itemsPerPage = 3; // Define the number of items per page
+  const itemsPerPage = 16; // Define the number of items per page
   const [itemOffset, setItemOffset] = useState(0);
 
   // Calculate the current items to display
@@ -113,31 +109,29 @@ const ListViewProducts = ({
       <div
         className="grid gap-4 w-full h-[1034px]"
         style={{
-          gridTemplateRows: "repeat(3, 332px)",
-          gridTemplateColumns: "1fr",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gridTemplateRows: "repeat(4, calc((100% - 1rem * 3)/4))",
         }}
       >
         {currentItems.map((item: shopProductTypes) => (
           <div key={item.id} className="flex flex-col gap-1">
             <div className="relative w-full h-[70%]">
-              <Link href="/">
-                <img
-                  className="w-full h-full object-cover"
-                  src={item.pic}
-                  alt={item.name}
-                />
-              </Link>
+              <img
+                className="w-full h-full object-cover"
+                src={item.pic}
+                alt={item.name}
+              />
               {item.quantity == 0 ? (
                 <div
                   className="absolute top-1/2 left-1/2 w-[30px] text-center h-[30px] p-1 bg-[#B1B1B1] flex justify-center items-center rounded-full translate-x-[-50%] translate-y-[-50%]"
                   style={{
-                    width: "clamp(10%, 6vw, 40%)",
-                    height: "clamp(10%, 6vw, 40%)",
+                    width: "clamp(10%, 2.7vw, 40%)",
+                    height: "clamp(10%, 2.7vw, 40%)",
                   }}
                 >
                   <p
                     className="text-[#FFFFFF] font-bold"
-                    style={{ fontSize: "clamp(6px, 1.3vw, 30px)" }}
+                    style={{ fontSize: "clamp(6px, .6vw, 30px)" }}
                   >
                     SOLD OUT
                   </p>
@@ -216,4 +210,4 @@ const ListViewProducts = ({
   );
 };
 
-export default ListViewProducts;
+export default FourColumnsProductView;

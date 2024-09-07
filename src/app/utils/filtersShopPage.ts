@@ -19,7 +19,18 @@ const filterColorArray = [
   { id: 11, color: "#8A6CFF" },
   { id: 12, color: "#B66CFF" },
   { id: 13, color: "#FC6CFF" },
-  { id: 14, color: "#FF6C6C" },
+  { id: 14, color: "#FFD1DC" },
+  { id: 15, color: "#FFD700" },
+  { id: 16, color: "#000000" },
+  { id: 17, color: "#8DB4D2" },
+  { id: 18, color: "#EBE6DB" },
+  { id: 19, color: "#C1E1C1" },
+  { id: 20, color: "#B1C5D4" },
+  { id: 21, color: "#063E66" },
+  { id: 22, color: "#FFFFFF" },
+  { id: 23, color: "#836953" },
+  { id: 24, color: "#C6AEC7" },
+  { id: 25, color: "#BEDCE3" },
 ];
 
 const filterPricesArray = [

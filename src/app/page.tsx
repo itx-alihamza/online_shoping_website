@@ -3,7 +3,7 @@ import "./globals.css";
 import SignBtn from "./Components/SignBtn";
 import { useState } from "react";
 import Product from "./Components/Product";
-import products from "./utils/products";
+import products from "./utils/newArrivalProducts";
 import NewArrivalBtns from "./Components/NewArrivalBtns";
 import { custData } from "./utils/customerData";
 import DealOfTheMonth from "./Components/DealOfTheMonth";

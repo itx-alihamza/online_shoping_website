@@ -1,8 +1,17 @@
 import { tagsArray } from "@/app/utils/filtersShopPage";
 import React, { useState } from "react";
-
-const FilterTagsDropDown = () => {
+type FilterTagProps = {
+  onSelectTag: (currentTagSelected: string) => void;
+};
+const FilterTagsDropDown = ({ onSelectTag }: FilterTagProps) => {
   const [dropDownActive, setDropDown] = useState(true);
+  const [tagSelected, setTagSelected] = useState(null);
+  function handleProductTagSelected(selectedTag: any) {
+    const currentTagSelected = tagSelected == selectedTag ? null : selectedTag;
+    setTagSelected(currentTagSelected);
+    onSelectTag(currentTagSelected);
+  }
+
   function handleDropDownActive() {
     setDropDown(!dropDownActive);
   }
@@ -24,7 +33,20 @@ const FilterTagsDropDown = () => {
       >
         {tagsArray.map((item) => {
           return (
-            <p className="text-xs text-[#8A8A8A] cursor-pointer">{item.tag}</p>
+            <p
+              className="text-xs text-[#8A8A8A] cursor-pointer"
+              style={
+                tagSelected == item.tag
+                  ? {
+                      color: "black",
+                      fontWeight: "bold",
+                    }
+                  : {}
+              }
+              onClick={() => handleProductTagSelected(item.tag)}
+            >
+              {item.tag}
+            </p>
           );
         })}
       </div>

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import RewindCorousal from "./RewindCorousal";
 import { ChevronLeft, ChevronRight } from "react-feather";
 import SignBtn from "./SignBtn";
+type DealOfTheMonthProps = {
+  heading: string;
+};
 // Corousal images
 const imgData = [
   "/Homepage/2_sec/1.png",
@@ -9,7 +12,7 @@ const imgData = [
   "/Homepage/2_sec/3.png",
   "/Homepage/2_sec/2.png",
 ];
-const DealOfTheMonth = () => {
+const DealOfTheMonth = ({ heading }: DealOfTheMonthProps) => {
   const [curIndex, setCurrentImg] = useState(0);
   //   next button logic
   const next = () => {
@@ -32,7 +35,7 @@ const DealOfTheMonth = () => {
               className="text-[#484848] text-[50px] mainHeading"
               style={{ fontSize: "clamp(1rem, 2.7vw, 3rem)" }}
             >
-              Deals Of The Month
+              {heading}
             </h1>
             <p className="text-[10px] w-full text-[#8A8A8A]">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit.

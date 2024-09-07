@@ -10,9 +10,10 @@ export type ProductTypes = {
 };
 export type shopProductTypes = {
   id: any;
+  quantity: number;
   pic: string;
   name: string;
-  price: string;
+  price: any;
   color1: string;
   color2: string;
   color3?: string;

@@ -27,6 +27,8 @@ const SignBtn = ({ text, btn, onClick }: SignProps) => {
       ? "bg-black shadow-lg w-[106px] h-[31px] text-[9px] mb-2 text-white rounded-[4px] flex justify-center items-center"
       : btn == "viewMore"
       ? "bg-black shadow-lg w-[106px] h-[31px] text-[9px] mb-2 text-white rounded-[4px] flex justify-center items-center"
+      : btn == "checkout"
+      ? "bg-black shadow-lg w-[26vw] h-[7vh] text-[10px] mb-2 text-white rounded-[4px] flex justify-center items-center"
       : "";
 
   return (
@@ -39,7 +41,8 @@ const SignBtn = ({ text, btn, onClick }: SignProps) => {
         "createAccount" ||
         "shopNow" ||
         "buyNow" ||
-        "viewMore"
+        "viewMore" ||
+        "checkout"
           ? onClick
           : undefined
       }

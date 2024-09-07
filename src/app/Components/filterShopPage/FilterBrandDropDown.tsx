@@ -1,9 +1,16 @@
 import { filterBrandsArray } from "@/app/utils/filtersShopPage";
 import React, { useState } from "react";
 type FilterBrandProps = {
-  //   onClick: () => void;
+  onSelectBrand: (currentBrandSelected: string) => void;
 };
-const FilterBrandDropdown = ({}: FilterBrandProps) => {
+const FilterBrandDropdown = ({ onSelectBrand }: FilterBrandProps) => {
+  const [brandSelected, setBrandSelected] = useState(null);
+  function handleProductBrandSelected(selectedBrand: any) {
+    const currentBrandSelected =
+      brandSelected == selectedBrand ? null : selectedBrand;
+    setBrandSelected(currentBrandSelected);
+    onSelectBrand(currentBrandSelected);
+  }
   const [dropDownActive, setDropDown] = useState(true);
   function handleDropDownActive() {
     setDropDown(!dropDownActive);
@@ -26,7 +33,18 @@ const FilterBrandDropdown = ({}: FilterBrandProps) => {
       >
         {filterBrandsArray.map((item) => {
           return (
-            <p className="text-xs text-[#8A8A8A] cursor-pointer">
+            <p
+              className="text-xs text-[#8A8A8A] cursor-pointer"
+              style={
+                brandSelected == item.brand
+                  ? {
+                      color: "black",
+                      fontWeight: "bold",
+                    }
+                  : {}
+              }
+              onClick={() => handleProductBrandSelected(item.brand)}
+            >
               {item.brand}
             </p>
           );

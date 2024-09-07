@@ -33,7 +33,10 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className} style={{ overflowX: "hidden" }}>
+      <body
+        className={`${inter.className} absolute`}
+        style={{ overflowX: "hidden" }}
+      >
         {isHeaderUnsigned && <CommonHeaderUnsigned />}{" "}
         {/* When user is unSigned */}
         {isHeaderSigned && isHeaderUnignedInclude !== "/" ? (

@@ -12,7 +12,7 @@ const CommonHeaderUnsigned = () => {
         <h1 className="mainHeading">FASCO</h1>
       </div>
       <div className="text-[11px] text-[#484848]  w-[41%]  flex flex-row justify-around items-center">
-        <Link href={"/"}>
+        <Link href={"/home"}>
           <p className="cursor-pointer">Home</p>
         </Link>
         <a href="#DOM" className="cursor-pointer">

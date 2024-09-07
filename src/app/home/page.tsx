@@ -7,7 +7,7 @@ import Product from "../Components/Product";
 import SignBtn from "../Components/SignBtn";
 import SomeCollection from "../Components/SomeCollection";
 import { custData } from "../utils/customerData";
-import products from "../utils/products";
+import products from "../utils/newArrivalProducts";
 import Link from "next/link";
 import CustomerReviewCorousal from "../Components/customerReviewCorousal/CustomerReviewCorousal";
 export default function Home() {
@@ -180,7 +180,7 @@ export default function Home() {
       <div className="fixed flex justify-between z-10 items-center top-[81%] right-[2%] w-20 ">
         <Link href="/products/miniCart/cartPage">
           <img
-            className="w-8 h-8 p-2 border hover:border-[#ccc] transition duration-300 ease-in-out border-black bg-black rounded-lg"
+            className="w-8 h-8 p-2 border hover:border-[#ccc]  border-black bg-black rounded-lg"
             src="/Homepage/1_sec/crate.png"
           />
         </Link>
@@ -188,6 +188,7 @@ export default function Home() {
           <img
             className="w-8 h-8 p-2 border hover:border-[#333] transition duration-300 ease-in-out border-black rounded-full"
             src="/Homepage/1_sec/arrow.png"
+            style={{ transform: "5s ease-in-out linear" }}
           />
         </a>
       </div>

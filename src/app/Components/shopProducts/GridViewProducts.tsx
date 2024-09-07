@@ -3,9 +3,6 @@ import ReactPaginate from "react-paginate";
 import "./paginationStyle.css";
 import { shopProductsData } from "@/app/utils/shopProducts";
 import { shopProductTypes } from "@/app/utils/types";
-import Link from "next/link";
-// import { Link } from "lucide-react";
-
 type ShopProductsProps = {
   productSize: string | null;
   productColor: string | null;
@@ -13,7 +10,7 @@ type ShopProductsProps = {
   productBrand: string | null;
   productTag: string | null;
 };
-const ListViewProducts = ({
+const GridColumnsProductView = ({
   productSize,
   productColor,
   productPrice,
@@ -35,17 +32,19 @@ const ListViewProducts = ({
     productTag
   ) {
     if (productSize) {
-      shopProductsFilterData = shopProductsData.filter(
+      const filteredSizeProducts = shopProductsData.filter(
         (item) => item.size == productSize
       );
+      shopProductsFilterData = [...filteredSizeProducts];
     }
     if (productColor) {
-      shopProductsFilterData = shopProductsData.filter(
+      const filterColorProducts = shopProductsData.filter(
         (item) =>
           item.color1 == productColor ||
           item.color2 == productColor ||
           item.color3 == productColor
       );
+      shopProductsFilterData = [...filterColorProducts];
     }
     if (productPrice) {
       if (productPrice == "$0-$50") {
@@ -91,7 +90,7 @@ const ListViewProducts = ({
   // console.log("Shop filter data outside: ", ShopProductsFilterData);
   //  const shopProductsFilterData = shopProductsData
 
-  const itemsPerPage = 3; // Define the number of items per page
+  const itemsPerPage = 25; // Define the number of items per page
   const [itemOffset, setItemOffset] = useState(0);
 
   // Calculate the current items to display
@@ -111,43 +110,42 @@ const ListViewProducts = ({
   return (
     <>
       <div
-        className="grid gap-4 w-full h-[1034px]"
+        className=" grid gap-4 w-full h-[1034px]"
         style={{
-          gridTemplateRows: "repeat(3, 332px)",
-          gridTemplateColumns: "1fr",
+          gridTemplateColumns: "repeat(5, 1fr)",
+          gridTemplateRows: "repeat(5, calc((100% - 1rem * 4)/5))",
         }}
       >
         {currentItems.map((item: shopProductTypes) => (
-          <div key={item.id} className="flex flex-col gap-1">
+          <div key={item.id} className=" flex flex-col gap-1">
             <div className="relative w-full h-[70%]">
-              <Link href="/">
-                <img
-                  className="w-full h-full object-cover"
-                  src={item.pic}
-                  alt={item.name}
-                />
-              </Link>
+              <img
+                className="w-full h-full object-cover"
+                src={item.pic}
+                alt="Product Image"
+              />
               {item.quantity == 0 ? (
                 <div
-                  className="absolute top-1/2 left-1/2 w-[30px] text-center h-[30px] p-1 bg-[#B1B1B1] flex justify-center items-center rounded-full translate-x-[-50%] translate-y-[-50%]"
+                  className="absolute top-1/2 left-1/2 text-center  p-1 bg-[#B1B1B1] flex justify-center items-center rounded-full translate-x-[-50%] translate-y-[-50%]"
                   style={{
-                    width: "clamp(10%, 6vw, 40%)",
-                    height: "clamp(10%, 6vw, 40%)",
+                    width: "clamp(10%, 2.5vw, 40%)",
+                    height: "clamp(10%, 2.5vw, 40%)",
                   }}
                 >
                   <p
                     className="text-[#FFFFFF] font-bold"
-                    style={{ fontSize: "clamp(6px, 1.3vw, 30px)" }}
+                    style={{ fontSize: "clamp(6px, .3vw, 30px)" }}
                   >
                     SOLD OUT
                   </p>
                 </div>
               ) : null}
             </div>
+
             <p
               className="text-[12px] font-semibold"
               style={{
-                fontSize: "clamp(10px, 2.5vh, 4rem)",
+                fontSize: "clamp(8px, 1.5vh, 4rem)",
               }}
             >
               {item.name}
@@ -155,35 +153,35 @@ const ListViewProducts = ({
             <p
               className="text-[12px]"
               style={{
-                fontSize: "clamp(10px, 3vh, 4rem)",
+                fontSize: "clamp(8px, 1.5vh, 4rem)",
               }}
             >
               ${item.price}
             </p>
             <div className="flex flex-row gap-2">
               <div
-                className="border border-black w-[21px] h-[21px] p-2 rounded-full cursor-pointer"
+                className=" rounded-full cursor-pointer"
                 style={{
                   backgroundColor: item.color1,
-                  width: "clamp(10px, 3vh, 4rem)",
-                  height: "clamp(10px, 3vh, 4rem)",
+                  width: "clamp(10px, 2.5vh, 4rem)",
+                  height: "clamp(10px, 2.5vh, 4rem)",
                 }}
               />
               <div
-                className="border border-[#e6e6e6] w-[21px] h-[21px] rounded-full cursor-pointer"
+                className="border border-[#e6e6e6] rounded-full cursor-pointer"
                 style={{
                   backgroundColor: item.color2,
-                  width: "clamp(10px, 3vh, 4rem)",
-                  height: "clamp(10px, 3vh, 4rem)",
+                  width: "clamp(10px, 2.5vh, 4rem)",
+                  height: "clamp(10px, 2.5vh, 4rem)",
                 }}
               />
               {item.color3 && (
                 <div
-                  className="border border-[#e6e6e6] w-[21px] h-[21px] rounded-full cursor-pointer"
+                  className="border border-[#e6e6e6]  rounded-full cursor-pointer"
                   style={{
                     backgroundColor: item.color3,
-                    width: "clamp(10px, 3vh, 4rem)",
-                    height: "clamp(10px, 3vh, 4rem)",
+                    width: "clamp(10px, 2.5vh, 4rem)",
+                    height: "clamp(10px, 2.5vh, 4rem)",
                   }}
                 />
               )}
@@ -191,12 +189,13 @@ const ListViewProducts = ({
           </div>
         ))}
       </div>
-
       {/* React Paginate Component */}
       <ReactPaginate
         breakLabel="..."
         nextLabel={
-          <img className="w-1.5 h-1.5" src="/Shop_page/leftPage.png" />
+          <div className="w-6 h-6 p-2 flex justify-center items-center cursor-pointer">
+            <img className="w-1.5 h-1.5" src="/Shop_page/leftPage.png" />
+          </div>
         }
         onPageChange={handlePageClick}
         pageRangeDisplayed={1}
@@ -216,4 +215,4 @@ const ListViewProducts = ({
   );
 };
 
-export default ListViewProducts;
+export default GridColumnsProductView;

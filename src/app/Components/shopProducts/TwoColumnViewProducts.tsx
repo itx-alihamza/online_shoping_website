@@ -1,46 +1,212 @@
 import { shopProductsData } from "@/app/utils/shopProducts";
 import { shopProductTypes } from "@/app/utils/types";
-import React from "react";
+import React, { useState } from "react";
+import ReactPaginate from "react-paginate";
 type ShopProductsProps = {
-  //   productLayout: string;
+  productSize: string | null;
+  productColor: string | null;
+  productPrice: string | null;
+  productBrand: string | null;
+  productTag: string | null;
 };
-const TwoColumnsProductView = () => {
+const TwoColumnsProductView = ({
+  productSize,
+  productColor,
+  productPrice,
+  productBrand,
+  productTag,
+}: ShopProductsProps) => {
+  console.log("Product Size", productSize);
+  console.log("Product Color", productColor);
+  console.log("Product Price", productPrice);
+  console.log("Product Brand", productBrand);
+  console.log("Product Tag", productTag);
+  // Products filtering logic
+  let shopProductsFilterData: any = [];
+  if (
+    productSize ||
+    productColor ||
+    productPrice ||
+    productBrand ||
+    productTag
+  ) {
+    if (productSize) {
+      shopProductsFilterData = shopProductsData.filter(
+        (item) => item.size == productSize
+      );
+    }
+    if (productColor) {
+      shopProductsFilterData = shopProductsData.filter(
+        (item) =>
+          item.color1 == productColor ||
+          item.color2 == productColor ||
+          item.color3 == productColor
+      );
+    }
+    if (productPrice) {
+      if (productPrice == "$0-$50") {
+        shopProductsFilterData = shopProductsData.filter(
+          (item) => item.price >= 0 && item.price <= 50
+        );
+      }
+      if (productPrice == "$50-$100") {
+        shopProductsFilterData = shopProductsData.filter(
+          (item) => item.price >= 50 && item.price <= 100
+        );
+      }
+      if (productPrice == "$100-$150") {
+        shopProductsFilterData = shopProductsData.filter(
+          (item) => item.price >= 100 && item.price <= 150
+        );
+      }
+      if (productPrice == "$150-$200") {
+        shopProductsFilterData = shopProductsData.filter(
+          (item) => item.price >= 150 && item.price <= 200
+        );
+      }
+      if (productPrice == "$300-$400") {
+        shopProductsFilterData = shopProductsData.filter(
+          (item) => item.price >= 300 && item.price <= 400
+        );
+      }
+    }
+    if (productBrand) {
+      shopProductsFilterData = shopProductsData.filter(
+        (item) => item.brand == productBrand
+      );
+    }
+    if (productTag) {
+      shopProductsFilterData = shopProductsData.filter(
+        (item) => item.tag == productTag
+      );
+    }
+  } else {
+    shopProductsFilterData = shopProductsData;
+  }
+
+  // console.log("Shop filter data outside: ", ShopProductsFilterData);
+  //  const shopProductsFilterData = shopProductsData
+
+  const itemsPerPage = 6; // Define the number of items per page
+  const [itemOffset, setItemOffset] = useState(0);
+
+  // Calculate the current items to display
+  const endOffset = itemOffset + itemsPerPage;
+
+  const currentItems = shopProductsFilterData.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(shopProductsFilterData.length / itemsPerPage);
+  console.log("Page count : ", pageCount);
+
+  // Handle page click
+  const handlePageClick = (event: any) => {
+    const newOffset =
+      (event.selected * itemsPerPage) % shopProductsFilterData.length;
+    setItemOffset(newOffset);
+  };
+
   return (
-    <div
-      className="border border-black grid gap-4 max-w-[76%] max-h-[1034px]"
-      style={{
-        gridTemplateRows: "repeat(3, 1fr)",
-        gridTemplateColumns: "repeat(2, 1fr)",
-      }}
-    >
-      {shopProductsData.slice(0, 6).map((item: shopProductTypes) => {
-        return (
-          <div key={item.id} className="border flex flex-col gap-1">
-            <div className="w-full h-[70%]">
-              <img className="w-full h-full object-cover" src={item.pic} />
+    <>
+      <div
+        className="grid gap-4 w-full h-[1034px]"
+        style={{
+          gridTemplateColumns: "repeat(2, 1fr)",
+          gridTemplateRows: "repeat(3, calc((100% - 16px * 2) /3))",
+        }}
+      >
+        {currentItems.map((item: shopProductTypes) => (
+          <div key={item.id} className="flex flex-col gap-1">
+            <div className="relative w-full h-[70%]">
+              <img
+                className="w-full h-full object-cover"
+                src={item.pic}
+                alt={item.name}
+              />
+              {item.quantity == 0 ? (
+                <div
+                  className="absolute top-1/2 left-1/2 w-[30px] text-center h-[30px] p-1 bg-[#B1B1B1] flex justify-center items-center rounded-full translate-x-[-50%] translate-y-[-50%]"
+                  style={{
+                    width: "clamp(10%, 4vw, 40%)",
+                    height: "clamp(10%, 4vw, 40%)",
+                  }}
+                >
+                  <p
+                    className="text-[#FFFFFF] font-bold"
+                    style={{ fontSize: "clamp(6px, .8vw, 30px)" }}
+                  >
+                    SOLD OUT
+                  </p>
+                </div>
+              ) : null}
             </div>
-            <p className="text-[12px] font-semibold">{item.name}</p>
-            <p className="text-[12px]">{item.price}</p>
+            <p
+              className="text-[12px] font-semibold"
+              style={{
+                fontSize: "clamp(10px, 2.5vh, 4rem)",
+              }}
+            >
+              {item.name}
+            </p>
+            <p
+              className="text-[12px]"
+              style={{
+                fontSize: "clamp(10px, 3vh, 4rem)",
+              }}
+            >
+              ${item.price}
+            </p>
             <div className="flex flex-row gap-2">
               <div
                 className="border border-black w-[21px] h-[21px] p-2 rounded-full cursor-pointer"
-                style={{ backgroundColor: item.color1 }}
+                style={{
+                  backgroundColor: item.color1,
+                  width: "clamp(10px, 3vh, 4rem)",
+                  height: "clamp(10px, 3vh, 4rem)",
+                }}
               />
               <div
                 className="border border-[#e6e6e6] w-[21px] h-[21px] rounded-full cursor-pointer"
-                style={{ backgroundColor: item.color2 }}
+                style={{
+                  backgroundColor: item.color2,
+                  width: "clamp(10px, 3vh, 4rem)",
+                  height: "clamp(10px, 3vh, 4rem)",
+                }}
               />
               {item.color3 && (
                 <div
                   className="border border-[#e6e6e6] w-[21px] h-[21px] rounded-full cursor-pointer"
-                  style={{ backgroundColor: item.color3 }}
+                  style={{
+                    backgroundColor: item.color3,
+                    width: "clamp(10px, 3vh, 4rem)",
+                    height: "clamp(10px, 3vh, 4rem)",
+                  }}
                 />
               )}
             </div>
           </div>
-        );
-      })}
-    </div>
+        ))}
+      </div>
+
+      {/* React Paginate Component */}
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel={
+          <img className="w-1.5 h-1.5" src="/Shop_page/leftPage.png" />
+        }
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={1}
+        pageCount={pageCount}
+        previousLabel={
+          <img
+            className="w-1.5 h-1.5"
+            style={{ rotate: "180deg" }}
+            src="/Shop_page/leftPage.png"
+          />
+        }
+        renderOnZeroPageCount={null}
+        containerClassName="pagination"
+        activeClassName="active"
+      />
+    </>
   );
 };
 
