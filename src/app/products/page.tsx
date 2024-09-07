@@ -4,6 +4,7 @@ import { productImgs } from "../utils/products";
 import SomeCollection from "../Components/SomeCollection";
 import DealOfTheMonth from "../Components/DealOfTheMonth";
 import "./page.css";
+import MiniCart from "./miniCart/page";
 
 const ProductPage = () => {
   const [selectedSize, setSelectedSize] = useState<null | string>(null); //Storing selected product size
@@ -333,6 +334,7 @@ const ProductPage = () => {
         <DealOfTheMonth heading="People Also Loved" />
         {/* Some Collection */}
         <SomeCollection />
+        {/* <MiniCart onClick={}/> */}
       </div>
     </>
   );

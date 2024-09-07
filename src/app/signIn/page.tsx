@@ -1,10 +1,11 @@
 "use client";
-
 import Link from "next/link";
 import SignBtn from "../Components/SignBtn";
 import SignButton from "../Components/SocialSignBtn";
+import { useRouter } from "next/navigation";
 
 export default function SignIn() {
+  const router = useRouter();
   function onClickSignInWithGoogle() {
     console.log("Sign With Google");
   }
@@ -12,6 +13,7 @@ export default function SignIn() {
     console.log("Sign With Gmail");
   }
   function onSignInWithInfoBtnClick() {
+    router.push("/home");
     console.log("Sign With Info");
   }
   return (
