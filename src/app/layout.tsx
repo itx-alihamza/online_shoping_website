@@ -24,7 +24,7 @@ export default function RootLayout({
     "/products",
     "/products/miniCart",
     "/products/miniCart/cartPage",
-    "/products/miniCart/cartPage/checkOut/",
+    "/products/miniCart/cartPage/checkOut",
   ];
   const isHeaderSigned = headerSignedInclude.includes(pathName);
   const isHeaderUnsigned = headerUnsignedInclude.includes(pathName);

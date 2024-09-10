@@ -2,15 +2,23 @@
 import React, { useState } from "react";
 import SignBtn from "../SignBtn";
 import Link from "next/link";
-
-const MiniCart = () => {
+import "./page.css";
+type MiniCartProps = {
+  isProductAdd: any;
+};
+const MiniCart = ({ isProductAdd }: MiniCartProps) => {
+  console.log("Is Product Add", isProductAdd);
   const [selectedQuantity, setSelectedQuantity] = useState<any>(1); //Storing selected product quantity
-  const [isActiveCart, setCart] = useState<any>(false); // For displaying mini cart
+  const [isActiveCart, setCart] = useState<any>(isProductAdd); // For displaying mini cart
   function handleSelectedProductQuantity(num: any) {
     setSelectedQuantity((prvValue: any) => {
       let newQuantity = prvValue + num;
       return newQuantity < 0 ? 0 : newQuantity;
     });
+  }
+  function handleOnAddToCart() {
+    //Handling add to cart
+    setCart(!isActiveCart);
   }
   return (
     <div
@@ -21,11 +29,6 @@ const MiniCart = () => {
         className={`relative r-[-50%] bg-white   w-[40vw] h-full ${
           isActiveCart ? "mini-cart-container" : ""
         }`}
-        // style={
-        //   isActiveCart == true
-        //     ? { right: "0", transition: "right 1s ease-in-out" }
-        //     : {}
-        // }
       >
         <div className="flex flex-row p-4 w-full h-full">
           <div className="flex flex-col justify-between ">
@@ -104,7 +107,7 @@ const MiniCart = () => {
             <img
               className="w-4 h-4 cursor-pointer"
               src="/miniCart/closeSymbol.png"
-              onClick={() => setCart(!isActiveCart)}
+              onClick={handleOnAddToCart}
             />
           </div>
         </div>

@@ -1,0 +1,17 @@
+.main-container {
+  transition: opacity 0.3s ease;
+}
+.mini-cart-container {
+  /* animation: slideIn 0.5 ease-in-out;
+   */
+  animation-name: slideIn;
+  animation-duration: 3s;
+}
+@keyframes slideIn {
+  from {
+    right: -50%;
+  }
+  to {
+    right: 0;
+  }
+}
