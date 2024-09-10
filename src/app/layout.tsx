@@ -23,7 +23,7 @@ export default function RootLayout({
     "/products",
     "/products/miniCart",
     "/products/miniCart/cartPage",
-    "/products/miniCart/cartPage/checkOut/",
+    "/products/miniCart/cartPage/checkOut",
   ];
   const isHeaderSigned = headerSignedInclude.includes(pathName);
   const isHeaderUnsigned = headerUnsignedInclude.includes(pathName);
@@ -40,17 +40,17 @@ export default function RootLayout({
         style={{ overflowX: "hidden" }}
       >
         <ModalProvider>
-        <SideNavModal />
-        {isHeaderUnsigned && <CommonHeaderUnsigned />}{" "}
-        {/* When user is unSigned */}
-        {isHeaderSigned && isHeaderUnignedInclude !== "/" ? (
-          <CommonHeaderSigned />
-        ) : null}{" "}
-        {/* When user is Signed */}
-        {children}
-        {isHeaderSigned && isFooterMinicart !== "/products/miniCart" ? (
-          <CommonFooter />
-        ) : null}
+          {/* <SideNavModal /> */}
+          {isHeaderUnsigned && <CommonHeaderUnsigned />}{" "}
+          {/* When user is unSigned */}
+          {isHeaderSigned && isHeaderUnignedInclude !== "/" ? (
+            <CommonHeaderSigned />
+          ) : null}{" "}
+          {/* When user is Signed */}
+          {children}
+          {isHeaderSigned && isFooterMinicart !== "/products/miniCart" ? (
+            <CommonFooter />
+          ) : null}
         </ModalProvider>
       </body>
     </html>
