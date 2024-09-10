@@ -14,6 +14,7 @@ import { useModal } from "../context/ModalContext";
 export default function Home() {
   console.log("customer data", custData);
   const { showModal } = useModal();
+
   // Arrival Buttons array
   const arrivalButton: any = [
     "Men's Fashion",
