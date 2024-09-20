@@ -4,6 +4,7 @@ import { productImgs } from "../utils/products";
 import SomeCollection from "../Components/SomeCollection";
 import DealOfTheMonth from "../Components/DealOfTheMonth";
 import MiniCart from "../Components/miniCartComponent/MiniCart";
+import "./page.css";
 import SignBtn from "../Components/SignBtn";
 import Link from "next/link";
 
@@ -337,17 +338,21 @@ const ProductPage = () => {
         {/* Some Collection */}
         <SomeCollection />
         <div
-          className="main-container absolute top-0 bottom-0 left-0 right-0 hidden justify-end h-screen  w-screen z-1000 bg-[#787878]/50"
-          style={isActiveCart == true ? { display: "flex" } : {}}
+          className={`main-container absolute top-0 bottom-0 left-0 right-0 hidden justify-end h-screen  w-screen z-1000 bg-[#787878]/50`}
+          //    ${
+          //   isActiveCart ? "modal-fade-in" : "modal-fade-out"
+          // }`}
+          style={isActiveCart ? { display: "flex" } : {}}
         >
+          {/* Modal */}
           <div
-            className={`relative r-[-50%] bg-white   w-[40vw] h-full ${
-              isActiveCart ? "mini-cart-container" : ""
+            className={` r-[-50%] bg-white  w-[40vw] h-full ${
+              isActiveCart ? "mini-cart-open" : "mini-cart-close"
             }`}
           >
             <div className="flex flex-row p-4 w-full h-full">
               <div className="flex flex-col justify-between ">
-                {/* 1 of 2 */}
+                {/* 1 of 2*/}
                 <div className="flex flex-col gap-10">
                   <div className="flex flex-col">
                     <div className="flex flex-row justify-between items-center">

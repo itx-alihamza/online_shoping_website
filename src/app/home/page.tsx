@@ -10,10 +10,8 @@ import { custData } from "../utils/customerData";
 import products from "../utils/newArrivalProducts";
 import Link from "next/link";
 import CustomerReviewCorousal from "../Components/customerReviewCorousal/CustomerReviewCorousal";
-import { useModal } from "../context/ModalContext";
 export default function Home() {
   console.log("customer data", custData);
-  const { showModal } = useModal();
 
   // Arrival Buttons array
   const arrivalButton: any = [
@@ -53,7 +51,7 @@ export default function Home() {
   }
   return (
     // Main div
-    <div onClick={() => showModal('sideNav')} className="relative">
+    <div className="relative">
       {/* Section-1 */}
       <div className="flex flex-col  h-[87vh] w-full sm:w-[80%] md:w-[70%]  m-auto justify-center items-center">
         <div className="flex flex-row  justify-between w-full h-[79%]">
@@ -106,7 +104,7 @@ export default function Home() {
         </div>
       </div>
       {/* Section-2 */}
-      <DealOfTheMonth />
+      <DealOfTheMonth heading="Deals Of The Month" />
       {/* Section-3 */}
       <div id="NA" className="h-auto w-screen">
         <div className="  mx-auto flex flex-col justify-center items-center  h-auto w-[90vw] sm:w-[90vw] md:w-[80vw] lg:w-[70vw]">

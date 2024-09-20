@@ -107,7 +107,7 @@ const ThreeColumnsProductView = ({
   return (
     <>
       <div
-        className="grid gap-4 w-full h-[1034px]"
+        className="grid gap-4 w-full h-[1034px] mb-[40px]"
         style={{
           gridTemplateColumns: "repeat(3, 1fr)",
           gridTemplateRows: "repeat(3, calc((100% - 16px * 2)/ 3)",
@@ -116,11 +116,7 @@ const ThreeColumnsProductView = ({
         {currentItems.map((item: shopProductTypes) => (
           <div key={item.id} className="flex flex-col gap-1">
             <div className="relative w-full h-[70%]">
-              <img
-                className="w-full h-full object-cover"
-                src={item.pic}
-                alt={item.name}
-              />
+              <img className="w-full h-full" src={item.pic} alt={item.name} />
               {item.quantity == 0 ? (
                 <div
                   className="absolute top-1/2 left-1/2 w-[30px] text-center h-[30px] p-1 bg-[#B1B1B1] flex justify-center items-center rounded-full translate-x-[-50%] translate-y-[-50%]"
@@ -131,7 +127,7 @@ const ThreeColumnsProductView = ({
                 >
                   <p
                     className="text-[#FFFFFF] font-bold"
-                    style={{ fontSize: "clamp(6px, .7vw, 40px)" }}
+                    style={{ fontSize: "clamp(6px, .5vw, 30px)" }}
                   >
                     SOLD OUT
                   </p>
@@ -141,7 +137,7 @@ const ThreeColumnsProductView = ({
             <p
               className="text-[12px] font-semibold"
               style={{
-                fontSize: "clamp(10px, 2.5vh, 4rem)",
+                fontSize: "clamp(8px, 1.8vh, 4rem)",
               }}
             >
               {item.name}
@@ -149,26 +145,26 @@ const ThreeColumnsProductView = ({
             <p
               className="text-[12px]"
               style={{
-                fontSize: "clamp(10px, 3vh, 4rem)",
+                fontSize: "clamp(8px, 1.8vh, 4rem)",
               }}
             >
               ${item.price}
             </p>
             <div className="flex flex-row gap-2">
               <div
-                className="border border-black w-[21px] h-[21px] p-2 rounded-full cursor-pointer"
+                className="border border-black w-[21px] h-[21px] rounded-full cursor-pointer"
                 style={{
                   backgroundColor: item.color1,
-                  width: "clamp(10px, 3vh, 4rem)",
-                  height: "clamp(10px, 3vh, 4rem)",
+                  width: "clamp(10px, 2.7vh, 4rem)",
+                  height: "clamp(10px, 2.7vh, 4rem)",
                 }}
               />
               <div
                 className="border border-[#e6e6e6] w-[21px] h-[21px] rounded-full cursor-pointer"
                 style={{
                   backgroundColor: item.color2,
-                  width: "clamp(10px, 3vh, 4rem)",
-                  height: "clamp(10px, 3vh, 4rem)",
+                  width: "clamp(10px, 2.7vh, 4rem)",
+                  height: "clamp(10px, 2.7vh, 4rem)",
                 }}
               />
               {item.color3 && (
@@ -176,8 +172,8 @@ const ThreeColumnsProductView = ({
                   className="border border-[#e6e6e6] w-[21px] h-[21px] rounded-full cursor-pointer"
                   style={{
                     backgroundColor: item.color3,
-                    width: "clamp(10px, 3vh, 4rem)",
-                    height: "clamp(10px, 3vh, 4rem)",
+                    width: "clamp(10px, 2.7vh, 4rem)",
+                    height: "clamp(10px, 2.7vh, 4rem)",
                   }}
                 />
               )}

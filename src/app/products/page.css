@@ -1,0 +1,64 @@
+/* Fade-in and fade-out for the modal overlay */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Slide-in and slide-out for the cart */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* Modal container */
+.mini-cart {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 40vw;
+  height: 100%;
+  background-color: white;
+  z-index: 1000;
+}
+
+.mini-cart-open {
+  animation: slideIn 0.5s forwards; /* Slide in */
+}
+
+.mini-cart-close {
+  animation: slideOut 0.5s forwards; /* Slide out */
+}
+
+.modal-fade-in {
+  animation: fadeIn 0.5s forwards; /* Fade in */
+}
+
+.modal-fade-out {
+  animation: fadeOut 0.5s forwards; /* Fade out */
+}

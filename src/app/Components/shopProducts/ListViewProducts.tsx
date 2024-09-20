@@ -111,7 +111,7 @@ const ListViewProducts = ({
   return (
     <>
       <div
-        className="grid gap-4 w-full h-[1034px]"
+        className="grid gap-4 w-full h-[1034px] mb-[40px]"
         style={{
           gridTemplateRows: "repeat(3, 332px)",
           gridTemplateColumns: "1fr",

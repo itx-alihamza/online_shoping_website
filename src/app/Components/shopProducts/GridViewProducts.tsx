@@ -110,7 +110,7 @@ const GridColumnsProductView = ({
   return (
     <>
       <div
-        className=" grid gap-4 w-full h-[1034px]"
+        className=" grid gap-4 w-full h-[1034px] mb-[40px]"
         style={{
           gridTemplateColumns: "repeat(5, 1fr)",
           gridTemplateRows: "repeat(5, calc((100% - 1rem * 4)/5))",
@@ -118,9 +118,9 @@ const GridColumnsProductView = ({
       >
         {currentItems.map((item: shopProductTypes) => (
           <div key={item.id} className=" flex flex-col gap-1">
-            <div className="relative w-full h-[70%]">
+            <div className="relative w-full h-[65%]">
               <img
-                className="w-full h-full object-cover"
+                className="w-full h-full"
                 src={item.pic}
                 alt="Product Image"
               />
@@ -163,16 +163,16 @@ const GridColumnsProductView = ({
                 className=" rounded-full cursor-pointer"
                 style={{
                   backgroundColor: item.color1,
-                  width: "clamp(10px, 2.5vh, 4rem)",
-                  height: "clamp(10px, 2.5vh, 4rem)",
+                  width: "clamp(10px, 2vh, 4rem)",
+                  height: "clamp(10px, 2vh, 4rem)",
                 }}
               />
               <div
                 className="border border-[#e6e6e6] rounded-full cursor-pointer"
                 style={{
                   backgroundColor: item.color2,
-                  width: "clamp(10px, 2.5vh, 4rem)",
-                  height: "clamp(10px, 2.5vh, 4rem)",
+                  width: "clamp(10px, 2vh, 4rem)",
+                  height: "clamp(10px, 2vh, 4rem)",
                 }}
               />
               {item.color3 && (
@@ -180,8 +180,8 @@ const GridColumnsProductView = ({
                   className="border border-[#e6e6e6]  rounded-full cursor-pointer"
                   style={{
                     backgroundColor: item.color3,
-                    width: "clamp(10px, 2.5vh, 4rem)",
-                    height: "clamp(10px, 2.5vh, 4rem)",
+                    width: "clamp(10px, 2vh, 4rem)",
+                    height: "clamp(10px, 2vh, 4rem)",
                   }}
                 />
               )}

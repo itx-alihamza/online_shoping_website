@@ -6,16 +6,13 @@ import CommonHeaderUnsigned from "./Components/CommonHeaderUnsigned";
 import { usePathname } from "next/navigation";
 import { metadata } from "./utils/metaData";
 import CommonHeaderSigned from "./Components/CommonHeaderSigned";
-import { ModalProvider, useModal } from "./context/ModalContext";
-import SideNavModal from "./Components/sideNavModal/SideNavModal";
-import ModalHandler from "./Components/ModalHandler";
 // const router = useRouter();
 const inter = Inter({ subsets: ["latin"] });
 const metaData = metadata();
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  const pathName = usePathname(); //For current route
+  const pathName: any = usePathname(); //For current route
   const headerUnsignedInclude = ["/"];
   const headerSignedInclude = [
     "/",
@@ -39,8 +36,6 @@ export default function RootLayout({
         className={`${inter.className} absolute`}
         style={{ overflowX: "hidden" }}
       >
-        <ModalProvider>
-        <ModalHandler />
         {isHeaderUnsigned && <CommonHeaderUnsigned />}{" "}
         {/* When user is unSigned */}
         {isHeaderSigned && isHeaderUnignedInclude !== "/" ? (
@@ -51,7 +46,6 @@ export default function RootLayout({
         {isHeaderSigned && isFooterMinicart !== "/products/miniCart" ? (
           <CommonFooter />
         ) : null}
-        </ModalProvider>
       </body>
     </html>
   );
